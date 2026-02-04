@@ -831,3 +831,33 @@ if __name__ == "__main__":
         print("          linkedin-find, linkedin-profile, linkedin-company,")
         print("          apollo-company, apollo-person")
         sys.exit(1)
+
+
+# --- Censys Integration ---
+CENSYS_API_ID = os.environ.get('CENSYS_API_ID')
+CENSYS_API_SECRET = os.environ.get('CENSYS_API_SECRET')
+
+def censys_host_lookup(ip: str) -> Dict[str, Any]:
+    """Look up host information via Censys"""
+    if not CENSYS_API_ID or not CENSYS_API_SECRET:
+        return {"error": "No Censys API credentials configured"}
+    try:
+        from censys.search import CensysHosts
+        h = CensysHosts(api_id=CENSYS_API_ID, api_secret=CENSYS_API_SECRET)
+        return h.view(ip)
+    except Exception as e:
+        return {"error": str(e)}
+
+def censys_search(query: str, limit: int = 10) -> List[Dict[str, Any]]:
+    """Search Censys for hosts matching query"""
+    if not CENSYS_API_ID or not CENSYS_API_SECRET:
+        return [{"error": "No Censys API credentials configured"}]
+    try:
+        from censys.search import CensysHosts
+        h = CensysHosts(api_id=CENSYS_API_ID, api_secret=CENSYS_API_SECRET)
+        results = []
+        for page in h.search(query, per_page=limit, pages=1):
+            results.extend(page)
+        return results[:limit]
+    except Exception as e:
+        return [{"error": str(e)}]

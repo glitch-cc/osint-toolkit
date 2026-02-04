@@ -102,3 +102,16 @@ recon-ng                           # Start shell
 # marketplace search              # Find modules
 # marketplace install all         # Install all
 ```
+
+### Censys (API Required)
+Internet-wide scanning and host intelligence:
+```bash
+# Set credentials first
+export CENSYS_API_ID="your_id"
+export CENSYS_API_SECRET="your_secret"
+
+# Then use via osint_tools.py
+python3 osint_tools.py censys-host 8.8.8.8
+python3 osint_tools.py censys-search "services.service_name: SSH"
+```
+Get free API keys at: https://search.censys.io/account/api

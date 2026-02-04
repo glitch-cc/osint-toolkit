@@ -130,3 +130,12 @@ python3 report_generator.py "target" -i data.json -f json -o report.json
 # Generate HTML report
 python3 report_generator.py "target" -i data.json -f html -o report.html
 ```
+
+### Censys Platform API v3
+Host lookup and search (requires PAT + Org ID):
+```bash
+export CENSYS_API_KEY="censys_xxx"
+export CENSYS_ORG_ID="your-org-id"
+
+python3 censys_api.py 8.8.8.8
+```

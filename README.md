@@ -85,3 +85,12 @@ Phone number OSINT:
 phoneinfoga scan -n "+15551234567"
 phoneinfoga serve            # Web UI on port 5000
 ```
+
+### AMASS (OWASP)
+Attack surface mapping and subdomain discovery:
+```bash
+amass enum -d example.com           # Basic enum
+amass enum -d example.com -passive  # Passive only
+amass enum -d example.com -active   # Active enum
+amass intel -d example.com          # Intel gathering
+```

@@ -68,3 +68,20 @@ See our [Notion page](https://www.notion.so/OSINT-Toolkit-Project-2fdf8941c8ba81
 
 ---
 Built with ⚡ by Glitch
+
+## 🆕 New Tools (Phase 2)
+
+### Maigret
+Enhanced username search across 500+ sites (better than Sherlock):
+```bash
+maigret <username>           # Quick search (top 500 sites)
+maigret -a <username>        # Full search (all sites)
+maigret --json <username>    # JSON output
+```
+
+### Phoneinfoga
+Phone number OSINT:
+```bash
+phoneinfoga scan -n "+15551234567"
+phoneinfoga serve            # Web UI on port 5000
+```

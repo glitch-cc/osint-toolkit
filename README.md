@@ -94,3 +94,11 @@ amass enum -d example.com -passive  # Passive only
 amass enum -d example.com -active   # Active enum
 amass intel -d example.com          # Intel gathering
 ```
+
+### Recon-ng
+Modular web reconnaissance framework:
+```bash
+recon-ng                           # Start shell
+# marketplace search              # Find modules
+# marketplace install all         # Install all
+```

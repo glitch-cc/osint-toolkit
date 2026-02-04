@@ -115,3 +115,18 @@ python3 osint_tools.py censys-host 8.8.8.8
 python3 osint_tools.py censys-search "services.service_name: SSH"
 ```
 Get free API keys at: https://search.censys.io/account/api
+
+## 📊 Reporting
+
+Generate formatted reports from OSINT data:
+
+```bash
+# Generate Markdown report
+python3 report_generator.py "target" -f md -o report.md
+
+# Generate JSON report
+python3 report_generator.py "target" -i data.json -f json -o report.json
+
+# Generate HTML report
+python3 report_generator.py "target" -i data.json -f html -o report.html
+```
